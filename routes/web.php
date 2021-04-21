@@ -23,6 +23,7 @@ Route::get('/first', function(){    return view('pages.first');     });
 
 Route::resource('posts', \App\Http\Controllers\PostsController::class);
 Route::resource('users', \App\Http\Controllers\UsersController::class);
+Route::resource('homepage', \App\Http\Controllers\HomepageController::class);
 
 Route::post('create', 'PostsController@store');
 
@@ -32,5 +33,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\HomepageController::class, 'send'])->name('dashboard');
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('/homepageEdit', [App\Http\Controllers\HomepageController::class, 'index'])->name('homepage');
