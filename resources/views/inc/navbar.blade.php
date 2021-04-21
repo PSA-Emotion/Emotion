@@ -20,7 +20,9 @@
                 <li class="nav-item"><a href="#" class="nav-link">----</a></li>
                 <li class="nav-item"><a href="/first" class="nav-link">Apie mus</a></li>
                 <li class="nav-item"><a href="/profile" class="nav-link">Mano profilis</a></li>
+                @if(auth()->user()->status == 'vip' || auth()->user()->status == 'admin')
                 <li class="nav-item"><a href="/posts/create" class="nav-link btn-success">Sukurti įrašą</a></li>
+                    @endif
             </ul>
         @endauth
             <!-- Right Side Of Navbar -->

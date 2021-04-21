@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
             $table->string('profile_image')->default('noimage.jpg');
+            $table->string('status')->default('guest');
         });
     }
 

@@ -20,6 +20,7 @@
                                 <h4><strong>El. paštas - </strong></h4>
                                 <h4><strong>Įrašų skaičius - </strong></h4>
                                 <h4><strong>Profilis sukurtas - </strong></h4>
+                                <h4><strong>Vartotojo statusas - </strong></h4>
                                 <hr>
                                 <small>Pasirinkti profilio nuotrauka</small>
                                 {!! Form::open(['route' => ['users.update', auth()->user()->id ], 'enctype'=>'multipart/form-data']) !!}
@@ -34,6 +35,7 @@
                                 <h4>{{auth()->user()->email}}</h4>
                                 <h4>{{count($posts)}}</h4>
                                 <h4>{{auth()->user()->created_at}}</h4>
+                                <h4>{{auth()->user()->status}}</h4>
                                 <hr>
                             </div>
                         </div>

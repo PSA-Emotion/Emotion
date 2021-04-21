@@ -13,9 +13,7 @@ class AddStatusToUser extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table) {
-            $table->string('status');
-        });
+        //
     }
 
     /**
