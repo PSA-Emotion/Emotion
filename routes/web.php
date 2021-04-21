@@ -19,6 +19,7 @@ Route::get('/', function () {
 */
 Route::get('/', function(){      return view('pages.index');      });
 Route::get('/first', function(){    return view('pages.first');     });
+//Route::get('/profile', 'profile');
 
 Route::resource('posts', \App\Http\Controllers\PostsController::class);
 
@@ -30,4 +31,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');

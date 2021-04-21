@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
     <div class="container">
         <p class="navbar-brand">
             {{ config('app.name', 'Emocija.smile') }}
@@ -19,7 +19,7 @@
                 <li class="nav-item"><a href="/posts" class="nav-link">Irašai</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">----</a></li>
                 <li class="nav-item"><a href="/first" class="nav-link">Apie mus</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Mano profilis</a></li>
+                <li class="nav-item"><a href="/profile" class="nav-link">Mano profilis</a></li>
                 <li class="nav-item"><a href="/posts/create" class="nav-link btn-success">Sukurti įrašą</a></li>
             </ul>
         @endauth
