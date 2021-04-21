@@ -1,4 +1,3 @@
-<?php use App\Http\Controllers\PostsController ?>
 @extends('layouts.app')
 
 @section('content')

@@ -24,6 +24,7 @@ Route::get('/first', function(){    return view('pages.first');     });
 Route::resource('posts', \App\Http\Controllers\PostsController::class);
 Route::resource('users', \App\Http\Controllers\UsersController::class);
 Route::resource('homepage', \App\Http\Controllers\HomepageController::class);
+Route::resource('review', \App\Http\Controllers\ReviewsController::class);
 
 Route::post('create', 'PostsController@store');
 
