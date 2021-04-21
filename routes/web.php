@@ -22,6 +22,7 @@ Route::get('/first', function(){    return view('pages.first');     });
 //Route::get('/profile', 'profile');
 
 Route::resource('posts', \App\Http\Controllers\PostsController::class);
+Route::resource('users', \App\Http\Controllers\UsersController::class);
 
 Route::post('create', 'PostsController@store');
 

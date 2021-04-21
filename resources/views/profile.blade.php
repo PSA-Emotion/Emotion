@@ -10,7 +10,9 @@
                     <h3 class="text-center pb-5">Tavo profilis</h3>
                         <div class="row">
                             <div class="col-md-4">
-                                <img style="width:80%" src="/storage/cover_images/noimage.jpg">
+
+                                <img style="width:50%" src="/storage/profile_images/{{auth()->user()->profile_image}}" class="rounded mx-auto d-block">
+
                             </div>
                             <div class="col-md-4">
                                 <h4><strong>Vartotojo vardas - </strong></h4>
@@ -19,7 +21,12 @@
                                 <h4><strong>Įrašų skaičius - </strong></h4>
                                 <h4><strong>Profilis sukurtas - </strong></h4>
                                 <hr>
-                                <button class="btn btn-info">Ikelti nuotrauką</button>
+                                <small>Pasirinkti profilio nuotrauka</small>
+                                {!! Form::open(['route' => ['users.update', auth()->user()->id ], 'enctype'=>'multipart/form-data']) !!}
+                                {{Form::file('profile_image')}}
+                                {{Form::submit('Ikelti', array('class'=>'btn btn-info', 'style' => 'margin-top: 5px'))}}
+                                {{Form::hidden('_method', 'PUT')}}
+                                {!! Form::close() !!}
                             </div>
                             <div class="col-md-4">
                                 <h4>{{auth()->user()->name}}</h4>
