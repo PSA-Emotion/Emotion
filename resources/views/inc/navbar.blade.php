@@ -15,15 +15,19 @@
 
 @auth
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="/dashboard" class="nav-link active">Pagrindinis puslapis</a></li>
+                <li class="nav-item"><a href="/dashboard" class="nav-link">Pagrindinis puslapis</a></li>
                 <li class="nav-item"><a href="/posts" class="nav-link">Irašai</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">----</a></li>
                 <li class="nav-item"><a href="/first" class="nav-link">Apie mus</a></li>
                 <li class="nav-item"><a href="/profile" class="nav-link">Mano profilis</a></li>
-                <li class="nav-item"><a href="/homepageEdit" class="nav-link">DE</a></li>
                 @if(auth()->user()->status == 'vip' || auth()->user()->status == 'admin')
-                <li class="nav-item"><a href="/posts/create" class="nav-link btn-success">Sukurti įrašą</a></li>
+                <li class="nav-item"><a href="/posts/create" class="nav-link">Sukurti įrašą</a></li>
                     @endif
+                @if(auth()->user()->status == 'admin')
+                    <li class="nav-item"><a href="/admin" class="nav-link">Admin panelė</a></li>
+                @endif
+                @if(auth()->user()->status == 'vip')
+                    <li class="nav-item"><a href="/vip" class="nav-link">Moderatoriaus panelė</a></li>
+                @endif
             </ul>
         @endauth
             <!-- Right Side Of Navbar -->

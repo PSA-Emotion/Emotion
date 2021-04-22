@@ -19,10 +19,9 @@
                     <li class="nav-item"><a href="/adminUsers" class="nav-link">Vartotojai</a></li>
                     <li class="nav-item"><a href="/adminVip" class="nav-link">Moderatoriai</a></li>
                     <li class="nav-item"><a href="/adminPosts" class="nav-link">Visi įrašai</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">--------</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">--------</a></li>
+                    <li class="nav-item"><a href="/homepageEdit" class="nav-link">Redaguoti titulinį puslapį</a></li>
                     @if(auth()->user()->status == 'vip' || auth()->user()->status == 'admin')
-                        <li class="nav-item"><a href="/posts/create" class="nav-link btn-success">Sukurti įrašą</a></li>
+                        <li class="nav-item"><a href="/posts/create" class="nav-link">Sukurti įrašą</a></li>
                     @endif
                 </ul>
         @endauth

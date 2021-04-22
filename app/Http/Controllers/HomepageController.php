@@ -14,10 +14,11 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $home = Homepage::find(1);
-        //dd($home);
-        return view('homepageEdit')->with('home', $home);
-        //return View::first(['homepageEdit', 'dashboard'], $home);
+        if (auth()->user()->status == 'admin') {
+            $home = Homepage::find(1);
+            return view('homepageEdit')->with('home', $home);
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
 
     public function send(){

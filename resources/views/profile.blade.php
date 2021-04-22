@@ -63,7 +63,7 @@
                                 </tr>
                             @endforeach
                             @else
-                            <h1>Irasu nera</h1>
+                            <h1>Įrašų nėra</h1>
                                 @endif
                         </table>
                     </div>

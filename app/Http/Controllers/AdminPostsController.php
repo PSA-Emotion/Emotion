@@ -15,8 +15,11 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
-        return view('adminPosts')->with('posts', $posts);
+        if (auth()->user()->status == 'admin') {
+            $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+            return view('adminPosts')->with('posts', $posts);
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
 
     /**

@@ -44,13 +44,21 @@ class HomeController extends Controller
 
     public function adminUsers()
     {
-        $users = User::all();
-        return view('adminUsers')->with('users', $users);
+        if (auth()->user()->status == 'admin') {
+            $users = User::all();
+            return view('adminUsers')->with('users', $users);
+
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
 
     public function adminVip()
     {
-        $users = User::all();
-        return view('adminVip')->with('users', $users);
+        if (auth()->user()->status == 'admin') {
+            $users = User::all();
+            return view('adminVip')->with('users', $users);
+
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
 }
