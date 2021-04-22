@@ -26,6 +26,7 @@ Route::resource('users', \App\Http\Controllers\UsersController::class);
 Route::resource('homepage', \App\Http\Controllers\HomepageController::class);
 Route::resource('review', \App\Http\Controllers\ReviewsController::class);
 Route::resource('status', \App\Http\Controllers\StatusController::class);
+Route::resource('adminPosts', \App\Http\Controllers\AdminPostsController::class);
 
 Route::post('create', 'PostsController@store');
 
@@ -38,6 +39,6 @@ Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomepageController::class, 'send'])->name('dashboard');
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
-//Route::get('users.updateStatus', [App\Http\Controllers\UsersController::class, 'updateStatus'])->name('status');
 Route::get('/adminUsers', [App\Http\Controllers\HomeController::class, 'adminUsers'])->name('adminUsers');
+Route::get('/adminPosts', [App\Http\Controllers\AdminPostsController::class, 'index'])->name('adminPosts');
 Route::get('/homepageEdit', [App\Http\Controllers\HomepageController::class, 'index'])->name('homepage');

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
     <div class="container">
         <p class="navbar-brand">
-            {{ config('app.name', 'Emocija.smile') }}
+            Administratoriaus panelė
         </p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -15,9 +15,10 @@
 
             @auth
                 <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/admin" class="nav-link">Pagrindinis langas</a></li>
                     <li class="nav-item"><a href="/adminUsers" class="nav-link">Vartotojai</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Moderatoriai</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Irasai</a></li>
+                    <li class="nav-item"><a href="/adminPosts" class="nav-link">Visi įrašai</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">--------</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">--------</a></li>
                     @if(auth()->user()->status == 'vip' || auth()->user()->status == 'admin')
