@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Homepage;
 
 class CreateHomepageTable extends Migration
 {
@@ -20,6 +21,14 @@ class CreateHomepageTable extends Migration
             $table->mediumText('body')->default('Tesktas');
             $table->string('homepage_image')->default('noimage.jpg');
         });
+
+        DB::table('homepage')->insert([
+           [
+               'id'=>1,
+           ]
+        ]);
+
+
     }
 
     /**

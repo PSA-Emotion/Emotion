@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('profile_image')->default('noimage.jpg');
             $table->string('status')->default('guest');
+            $table->string('depreesion_level')->default('none');
         });
     }
 

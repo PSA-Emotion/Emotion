@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
@@ -37,7 +38,8 @@ class HomeController extends Controller
     public function admin()
     {
         if(auth()->user()->status == 'admin') {
-            return view('pages.admin');
+            $reviews = Review::all();
+            return view('pages.admin')->with('reviews', $reviews);
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
@@ -60,5 +62,12 @@ class HomeController extends Controller
 
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
+    }
+
+    public function depressionTest()
+    {
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+            return view('depressionTest')->with('user', $user);
     }
 }

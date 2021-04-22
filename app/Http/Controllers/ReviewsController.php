@@ -92,6 +92,8 @@ class ReviewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $review = Review::find($id);
+        $review->delete();
+        return redirect('/admin')->with('success', 'Atsiliepimas sėkmingai ištrintas');
     }
 }
