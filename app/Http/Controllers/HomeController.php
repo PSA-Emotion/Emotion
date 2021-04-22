@@ -33,4 +33,18 @@ class HomeController extends Controller
         $user = User::find($user_id);
         return view('profile')->with('posts', $user->posts);
     }
+
+    public function admin()
+    {
+        if(auth()->user()->status == 'admin') {
+            return view('pages.admin');
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
+    }
+
+    public function adminUsers()
+    {
+        $users = User::all();
+        return view('adminUsers')->with('users', $users);
+    }
 }
