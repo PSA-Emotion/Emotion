@@ -40,5 +40,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomepageController::class, 'send'
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 Route::get('/adminUsers', [App\Http\Controllers\HomeController::class, 'adminUsers'])->name('adminUsers');
+Route::get('/adminVip', [App\Http\Controllers\HomeController::class, 'adminVip'])->name('adminVip');
 Route::get('/adminPosts', [App\Http\Controllers\AdminPostsController::class, 'index'])->name('adminPosts');
 Route::get('/homepageEdit', [App\Http\Controllers\HomepageController::class, 'index'])->name('homepage');

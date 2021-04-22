@@ -17,7 +17,7 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a href="/admin" class="nav-link">Pagrindinis langas</a></li>
                     <li class="nav-item"><a href="/adminUsers" class="nav-link">Vartotojai</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Moderatoriai</a></li>
+                    <li class="nav-item"><a href="/adminVip" class="nav-link">Moderatoriai</a></li>
                     <li class="nav-item"><a href="/adminPosts" class="nav-link">Visi įrašai</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">--------</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">--------</a></li>

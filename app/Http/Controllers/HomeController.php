@@ -47,4 +47,10 @@ class HomeController extends Controller
         $users = User::all();
         return view('adminUsers')->with('users', $users);
     }
+
+    public function adminVip()
+    {
+        $users = User::all();
+        return view('adminVip')->with('users', $users);
+    }
 }

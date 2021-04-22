@@ -1,7 +1,7 @@
 @extends('layouts.adminPanel')
 
 @section('content')
-    <h1>Vartotojai</h1>
+    <h1>Moderatoriai</h1>
     <hr>
     <table class="table table-striped">
         <tr>
@@ -11,7 +11,7 @@
             <th>Pakeisti statusa</th>
         </tr>
         @foreach($users as $user)
-            @if($user->status == 'guest')
+            @if($user->status == 'vip')
             <tr>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
