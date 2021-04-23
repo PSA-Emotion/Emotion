@@ -27,7 +27,9 @@ Route::resource('homepage', \App\Http\Controllers\HomepageController::class);
 Route::resource('review', \App\Http\Controllers\ReviewsController::class);
 Route::resource('status', \App\Http\Controllers\StatusController::class);
 Route::resource('adminPosts', \App\Http\Controllers\AdminPostsController::class);
-Route::resource('tests', \App\Http\Controllers\TestsController::class);
+Route::resource('tests', \App\Http\Controllers\DepressionController::class);
+Route::resource('relationship', \App\Http\Controllers\RelationshipsController::class);
+Route::resource('tired', \App\Http\Controllers\TiredController::class);
 
 Route::post('create', 'PostsController@store');
 
@@ -45,3 +47,5 @@ Route::get('/adminVip', [App\Http\Controllers\HomeController::class, 'adminVip']
 Route::get('/adminPosts', [App\Http\Controllers\AdminPostsController::class, 'index'])->name('adminPosts');
 Route::get('/homepageEdit', [App\Http\Controllers\HomepageController::class, 'index'])->name('homepage');
 Route::get('/depressionTest', [App\Http\Controllers\HomeController::class, 'depressionTest'])->name('depressionTest');
+Route::get('/relationshipTest', [App\Http\Controllers\HomeController::class, 'relationshipTest'])->name('relationshipTest');
+Route::get('/tiredTest', [App\Http\Controllers\HomeController::class, 'tiredTest'])->name('tiredTest');

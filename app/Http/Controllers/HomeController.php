@@ -70,4 +70,18 @@ class HomeController extends Controller
             $user = User::find($user_id);
             return view('depressionTest')->with('user', $user);
     }
+
+    public function relationshipTest()
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('relationshipTest')->with('user', $user);
+    }
+
+    public function tiredTest()
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('tiredTest')->with('user', $user);
+    }
 }

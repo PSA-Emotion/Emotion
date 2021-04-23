@@ -21,7 +21,10 @@
                                 <h4><strong>Įrašų skaičius - </strong></h4>
                                 <h4><strong>Profilis sukurtas - </strong></h4>
                                 <h4><strong>Vartotojo statusas - </strong></h4>
+                                <hr>
                                 <h4><strong>Depresijos lygis - </strong></h4>
+                                <h4><strong>Santykio su savimi lygis - </strong></h4>
+                                <h4><strong>Nuovargio lygis - </strong></h4>
                                 <hr>
                                 <small>Pasirinkti profilio nuotrauka</small>
                                 {!! Form::open(['route' => ['users.update', auth()->user()->id ], 'enctype'=>'multipart/form-data']) !!}
@@ -37,9 +40,14 @@
                                 <h4>{{count($posts)}}</h4>
                                 <h4>{{auth()->user()->created_at}}</h4>
                                 <h4>{{auth()->user()->status}}</h4>
-                                <h4>{{auth()->user()->depreesion_level}}</h4>
                                 <hr>
-                                <a href="/depressionTest" class="btn btn-success"><h4>Atlikti Depresijos testą</h4></a>
+                                <h4>{{auth()->user()->depression_level}}</h4>
+                                <h4>{{auth()->user()->relationship_level}}</h4>
+                                <h4>{{auth()->user()->tired_level}}</h4>
+                                <hr>
+                                <a href="/depressionTest" class="btn btn-success" style="margin-bottom: 5px"><h4>Atlikti depresijos testą</h4></a>
+                                <a href="/relationshipTest" class="btn btn-success" style="margin-bottom: 5px"><h4>Atlikti santykio su savimi testą</h4></a>
+                                <a href="/tiredTest" class="btn btn-success" style="margin-bottom: 5px"><h4>Atlikti nuovargio testą</h4></a>
                             </div>
                         </div>
                         <hr>

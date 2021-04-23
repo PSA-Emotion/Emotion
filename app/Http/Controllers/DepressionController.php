@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
-class TestsController extends Controller
+class DepressionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -99,32 +99,29 @@ class TestsController extends Controller
         //dd($sum);
         $user = User::find($id);
         if($sum >= 0 && $sum <= 5){
-            $user->depreesion_level = 'Depresijos nėra';
+            $user->depression_level = 'Depresijos nėra';
 
         }
         if($sum >= 6 && $sum <= 10){
-            $user->depreesion_level = 'Normos ribos, tačiau nelaimingas';
+            $user->depression_level = 'Normos ribos, tačiau nelaimingas';
         }
         if($sum >= 11 && $sum <= 25){
-            $user->depreesion_level = 'Lengva depresija';
+            $user->depression_level = 'Lengva depresija';
         }
         if($sum >= 26 && $sum <= 50){
-            $user->depreesion_level = 'Vidutinė depresija';
+            $user->depression_level = 'Vidutinė depresija';
         }
         if($sum >= 51 && $sum <= 75){
-            $user->depreesion_level = 'Sunki depresija';
+            $user->depression_level = 'Sunki depresija';
         }
         if($sum >= 76 && $sum <= 100){
-            $user->depreesion_level = 'Itin sunki depresija';
+            $user->depression_level = 'Itin sunki depresija';
         }
         //dd($user);
         $user->save();
         $sum = 0;
 
         return redirect('/profile')->with('success', 'Testas atliktas');
-
-
-
     }
 
     /**

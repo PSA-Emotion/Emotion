@@ -19,13 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->text('profile_photo_path')->nullable();
             $table->timestamps();
             $table->string('profile_image')->default('noimage.jpg');
             $table->string('status')->default('guest');
-            $table->string('depreesion_level')->default('none');
+            $table->string('depression_level')->default('testas neatliktas');
+            $table->string('tired_level')->default('testas neatliktas');
+            $table->string('relationship_level')->default('testas neatliktas');
         });
     }
 
