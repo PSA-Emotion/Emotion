@@ -8,6 +8,9 @@
             <th>Vardas</th>
             <th>Email</th>
             <th>Statusas</th>
+            <th>Santykio lygis</th>
+            <th>Nuovargio lygis</th>
+            <th>Pakeisti statusa</th>
             <th>Pakeisti statusa</th>
         </tr>
         @foreach($users as $user)
@@ -16,6 +19,9 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->status}}</td>
+                <td>{{$user->depression_level}}</td>
+                <td>{{$user->relationship_level}}</td>
+                <td>{{$user->tired_level}}</td>
                 <td>
                     {!! Form::model($user, ['route' => ['status.update', $user->id]]) !!}
                     {{Form::select('status', ['guest' => 'guest', 'vip' => 'vip', 'admin' => 'admin'])}}
