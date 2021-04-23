@@ -19,8 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body style="background-color: #eff9fa">
+    <div id="app" style="background-color: #eff9fa">
 
         @include('inc.navbar')
 
