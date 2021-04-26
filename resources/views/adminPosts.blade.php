@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-8 col-sm-8">
                         <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                        <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}}</small>
+                        <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}} || Patinka - {{$post->likes}}</small>
                         {!! Form::model($post, ['route' => ['adminPosts.destroy', $post->id]]) !!}
                         {{Form::hidden('_method', 'DELETE')}}
                         {{Form::submit('Ištrinti įrašą', array('class'=>'btn btn-danger '))}}

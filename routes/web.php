@@ -49,3 +49,4 @@ Route::get('/homepageEdit', [App\Http\Controllers\HomepageController::class, 'in
 Route::get('/depressionTest', [App\Http\Controllers\HomeController::class, 'depressionTest'])->name('depressionTest');
 Route::get('/relationshipTest', [App\Http\Controllers\HomeController::class, 'relationshipTest'])->name('relationshipTest');
 Route::get('/tiredTest', [App\Http\Controllers\HomeController::class, 'tiredTest'])->name('tiredTest');
+Route::get('/posts/{id}/like', [App\Http\Controllers\LikesController::class, 'like'])->name('like');

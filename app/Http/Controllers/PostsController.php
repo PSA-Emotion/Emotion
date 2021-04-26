@@ -181,4 +181,5 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/posts')->with('success', 'Irašas sėkmingai ištrintas');
     }
+
 }

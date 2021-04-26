@@ -13,7 +13,7 @@
 
     <hr>
     <div class="text-center">
-    <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}}</small>
+    <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}} || Patinka - {{$post->likes}}</small>
     </div>
     <hr>
     @if(!Auth::guest())
@@ -26,5 +26,8 @@
     {!! Form::close() !!}
             @endif
     @endif
-
+<div class="row">
+    <div class="col-md-6 text-right"><a href="/posts/{{$post->id}}/read" class="btn btn-success">Perskaičiau</a></div>
+    <div class="col-md-6"><a href="/posts/{{$post->id}}/like" class="btn btn-success">Patinka</a></div>
+    </div>
 @endsection
