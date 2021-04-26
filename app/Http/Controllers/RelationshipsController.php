@@ -84,10 +84,6 @@ class RelationshipsController extends Controller
 
         //dd($sum);
         $user = User::find($id);
-        if($sum >= 0 && $sum <= 5){
-            $user->relationship_level = 'Depresijos nėra';
-
-        }
         if($sum >= 0 && $sum <= 39){
             $user->relationship_level = 'Grėsminga situacija';
         }

@@ -7,7 +7,16 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
 
-                    <h3 class="text-center pb-5">Tavo profilis</h3>
+                    <h3 class="text-center">Tavo profilis</h3>
+
+                        <hr>
+                        <h4 class="text-center">Tavo progresas {{auth()->user()->progress}} %</h4>
+
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{auth()->user()->progress}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <hr>
+
                         <div class="row">
                             <div class="col-md-4">
 

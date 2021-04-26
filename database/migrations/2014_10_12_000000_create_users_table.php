@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('profile_image')->default('noimage.jpg');
             $table->string('status')->default('guest');
+            $table->string('progress')->default(0);
             $table->string('depression_level')->default('testas neatliktas');
             $table->string('tired_level')->default('testas neatliktas');
             $table->string('relationship_level')->default('testas neatliktas');

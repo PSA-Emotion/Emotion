@@ -100,7 +100,6 @@ class DepressionController extends Controller
         $user = User::find($id);
         if($sum >= 0 && $sum <= 5){
             $user->depression_level = 'Depresijos nėra';
-
         }
         if($sum >= 6 && $sum <= 10){
             $user->depression_level = 'Normos ribos, tačiau nelaimingas';

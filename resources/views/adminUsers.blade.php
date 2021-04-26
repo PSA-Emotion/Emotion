@@ -8,6 +8,7 @@
             <th>Vardas</th>
             <th>Email</th>
             <th>Statusas</th>
+            <th>Progresas</th>
             <th>Depresijos lygis</th>
             <th>Santykio lygis</th>
             <th>Nuovargio lygis</th>
@@ -19,6 +20,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->status}}</td>
+                <td>{{$user->progress}}%</td>
                 <td>{{$user->depression_level}}</td>
                 <td>{{$user->relationship_level}}</td>
                 <td>{{$user->tired_level}}</td>

@@ -182,6 +182,19 @@ class PostsController extends Controller
         }
 
         $post->delete();
+
+        //Deleting "Read" table records of that post
+        $all_read = Read::all();
+        foreach ($all_read as $read){
+            if($read->post_id == $post->id){
+                $read->delete();
+            }
+        }
+
+        $user = auth()->user();
+        $user->progress--;
+        $user->save();
+
         return redirect('/posts')->with('success', 'Irašas sėkmingai ištrintas');
     }
 
