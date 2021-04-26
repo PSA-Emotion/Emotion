@@ -50,3 +50,4 @@ Route::get('/depressionTest', [App\Http\Controllers\HomeController::class, 'depr
 Route::get('/relationshipTest', [App\Http\Controllers\HomeController::class, 'relationshipTest'])->name('relationshipTest');
 Route::get('/tiredTest', [App\Http\Controllers\HomeController::class, 'tiredTest'])->name('tiredTest');
 Route::get('/posts/{id}/like', [App\Http\Controllers\LikesController::class, 'like'])->name('like');
+Route::get('/posts/{id}/read', [App\Http\Controllers\ReadsController::class, 'read'])->name('read');

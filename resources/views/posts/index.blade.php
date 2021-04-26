@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center">Irašai</h1>
+    <h1 class="text-center">Įrašai</h1>
     @if(count($posts)>0)
-         @foreach($posts as $post)
-             <div class="card">
-                 <div class="row">
+             @foreach($posts as $post)
+                 @if($post->isRead())
+             <div class="card" style="background-color: #60d58b">
+                 @else
+                     <div class="card">
+                 @endif
+                         <div class="row">
                      <div class="col-md-3 col-sm-4">
                          <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
                      </div>
@@ -13,11 +17,10 @@
                          <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
                          <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}}</small>
                          <strong> || Patinka - {{$post->likes}}</strong>
-
                      </div>
                  </div>
              </div>
-         @endforeach
+             @endforeach
         {{$posts->links()}}
     @else
         <p>Nera irašų</p>

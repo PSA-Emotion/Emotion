@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Read;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +27,9 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
-        return view('posts.index')->with('posts', $posts);
+        $reads = Read::all();
+        //return view('posts.index')->with('posts', $posts);
+        return view('posts.index', ['posts'=>$posts, 'reads'=>$reads]);
     }
 
     /**

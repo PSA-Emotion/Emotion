@@ -19,4 +19,7 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+    public function isRead(){
+        return Read::where('post_id', $this->id)->exists();
+    }
 }
