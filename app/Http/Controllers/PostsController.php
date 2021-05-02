@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Read;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Like;
 use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
@@ -181,7 +182,6 @@ class PostsController extends Controller
             Storage::delete('public/cover_images/'.$post->cover_image);
         }
 
-        $post->delete();
 
         //Deleting "Read" table records of that post
         $all_read = Read::all();
@@ -190,6 +190,16 @@ class PostsController extends Controller
                 $read->delete();
             }
         }
+
+        //Deleting "Likes" table records of that post
+        $all_likes = Like::all();
+        foreach ($all_likes as $like){
+            if($like->post_id == $post->id){
+                $like->delete();
+            }
+        }
+
+        $post->delete();
 
         $user = auth()->user();
         $user->progress--;

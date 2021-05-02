@@ -73,7 +73,7 @@
                                 <tr>
                                     <td>{{$post->title}}</td>
                                     <td><a href="/posts/{{$post->id}}" class="btn btn-success">Peržiūrėti</a></td>
-                                    <td><a href="/post/{{$post->id}}/edit" class="btn btn-primary">Redaguoti</a></td>
+                                    <td><a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Redaguoti</a></td>
                                     <td>
                                         {!! Form::model($post, ['route' => ['posts.destroy', $post->id]]) !!}
                                         {{Form::hidden('_method', 'DELETE')}}

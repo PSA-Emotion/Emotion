@@ -22,4 +22,7 @@ class Post extends Model
     public function isRead(){
         return Read::where(['post_id'=>$this->id,'user_id'=>auth()->user()->id])->exists();
     }
+    public function isLiked(){
+        return Like::where(['post_id'=>$this->id,'user_id'=>auth()->user()->id])->exists();
+    }
 }

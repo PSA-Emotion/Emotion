@@ -12,7 +12,7 @@
     {{Form::text('title', null, array('class'=>'form-control')) }}
 
             {{Form::label('body', 'Tekstas')}}
-            {{Form::textarea('body', null, array('id'=>'article-ckeditor','class'=>'form-control')) }}
+            {{Form::textarea('body', null, array('class'=>'form-control')) }}
 
             <div class="form-group mt-3">
                 {{Form::file('cover_image')}}
