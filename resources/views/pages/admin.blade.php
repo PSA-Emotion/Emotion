@@ -32,8 +32,9 @@
                     </td>
                 </tr>
         @endforeach
+    </table>
         @else
             <h5>Kolkas atsiliepimų nėra</h5>
             @endif
-    </table>
+    {{$reviews->links()}}
 @endsection

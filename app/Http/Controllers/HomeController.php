@@ -88,7 +88,7 @@ class HomeController extends Controller
     public function admin()
     {
         if(auth()->user()->status == 'admin') {
-            $reviews = Review::all();
+            $reviews = Review::orderBy('created_at','desc')->simplePaginate(5);
             return view('pages.admin')->with('reviews', $reviews);
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
@@ -133,5 +133,14 @@ class HomeController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('tiredTest')->with('user', $user);
+    }
+
+    public function vip()
+    {
+        if(auth()->user()->status == 'vip') {
+            $users = User::all();
+            return view('pages.vip')->with('users', $users);
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
 }

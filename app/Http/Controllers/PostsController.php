@@ -27,7 +27,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $posts = Post::orderBy('created_at','desc')->simplePaginate(10);
         $reads = Read::all();
         //return view('posts.index')->with('posts', $posts);
         return view('posts.index', ['posts'=>$posts, 'reads'=>$reads]);
@@ -69,7 +69,7 @@ class PostsController extends Controller
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_image', $fileNameToStore);
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
         else{
             $fileNameToStore = 'noimage.jpg';
@@ -145,7 +145,7 @@ class PostsController extends Controller
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_image', $fileNameToStore);
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
 
         // Create post
@@ -179,7 +179,7 @@ class PostsController extends Controller
 
         if($post->cover_image != 'noimage.jpg'){
             //Delete image
-            Storage::delete('public/cover_image/'.$post->cover_image);
+            Storage::delete('public/cover_images/'.$post->cover_image);
         }
 
 

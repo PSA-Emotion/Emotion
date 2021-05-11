@@ -37,8 +37,8 @@ class ReviewsController extends Controller
     {
         //dd($request);
         $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
+            'title' => 'required|max:50',
+            'body' => 'required|max:255',
         ]);
 
         // Create post

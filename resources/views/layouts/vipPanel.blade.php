@@ -20,20 +20,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body style="background-color: #eff9fa">
-    <div id="app" style="background-color: #eff9fa">
+<div id="app">
 
+    @include('inc.vipnavbar')
 
-        @include('inc.navbar')
+    <main class="py-4">
+        <div class="container">
+            @include('inc.messages')
+            @yield('content')
+        </div>
+    </main>
 
-        <main class="py-4">
-            <div class="container">
-                @include('inc.messages')
-                @yield('content')
-            </div>
-        </main>
+    @include('inc.footer')
 
-        @include('inc.footer')
-
-    </div>
+</div>
 </body>
 </html>

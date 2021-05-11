@@ -16,7 +16,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         if (auth()->user()->status == 'admin') {
-            $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+            $posts = Post::orderBy('created_at', 'desc')->simplePaginate(10);
             return view('adminPosts')->with('posts', $posts);
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
@@ -89,7 +89,7 @@ class AdminPostsController extends Controller
 
         if($post->cover_image != 'noimage.jpg'){
             //Delete image
-            Storage::delete('public/cover_image/'.$post->cover_image);
+            Storage::delete('public/cover_images/'.$post->cover_image);
         }
 
         $post->delete();

@@ -42,6 +42,7 @@ Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomepageController::class, 'send'])->name('dashboard');
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+Route::get('/vip', [App\Http\Controllers\HomeController::class, 'vip'])->name('vip');
 Route::get('/adminUsers', [App\Http\Controllers\HomeController::class, 'adminUsers'])->name('adminUsers');
 Route::get('/adminVip', [App\Http\Controllers\HomeController::class, 'adminVip'])->name('adminVip');
 Route::get('/adminPosts', [App\Http\Controllers\AdminPostsController::class, 'index'])->name('adminPosts');
@@ -51,3 +52,7 @@ Route::get('/relationshipTest', [App\Http\Controllers\HomeController::class, 're
 Route::get('/tiredTest', [App\Http\Controllers\HomeController::class, 'tiredTest'])->name('tiredTest');
 Route::get('/posts/{id}/like', [App\Http\Controllers\LikesController::class, 'like'])->name('like');
 Route::get('/posts/{id}/read', [App\Http\Controllers\ReadsController::class, 'read'])->name('read');
+Route::get('/vip/{id}/ban', [App\Http\Controllers\BansController::class, 'ban'])->name('ban');
+Route::get('/vip/{id}/unban', [App\Http\Controllers\BansController::class, 'unban'])->name('unban');
+Route::get('/vip/{id}/mute', [App\Http\Controllers\MutesController::class, 'mute'])->name('mute');
+Route::get('/vip/{id}/unmute', [App\Http\Controllers\MutesController::class, 'unmute'])->name('unmute');
