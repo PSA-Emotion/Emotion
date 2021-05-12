@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Read;
+use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Like;
@@ -188,6 +189,14 @@ class PostsController extends Controller
         foreach ($all_read as $read){
             if($read->post_id == $post->id){
                 $read->delete();
+            }
+        }
+
+        //Deleting "Report" table records of that post
+        $all_reports = Report::all();
+        foreach ($all_reports as $report){
+            if($report->post_id == $post->id){
+                $report->delete();
             }
         }
 

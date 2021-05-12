@@ -13,21 +13,28 @@
 
     <hr>
     <div class="text-center">
-    <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}} || Patinka - {{$post->likes}}</small>
+    <small>Parasytas - {{$post->created_at}} || Autorius - {{$post->user->name}} || Patinka - {{$post->likes}} || Ispėjimai - {{$post->reports}}</small>
     </div>
     <hr>
 
 <div class="row">
     @if($post->isRead())
-    <div class="col-md-6 text-right"><a href="#" class="btn btn-dark">Įrašas jau perskaitytas</a></div>
+    <div class="col-md-4 text-right"><a href="#" class="btn btn-dark">Įrašas jau perskaitytas</a></div>
     @else
-    <div class="col-md-6 text-right"><a href="/posts/{{$post->id}}/read" class="btn btn-success">Perskaičiau</a></div>
+    <div class="col-md-4 text-right"><a href="/posts/{{$post->id}}/read" class="btn btn-success">Perskaičiau</a></div>
     @endif
     @if($post->isLiked())
-    <div class="col-md-6"><a href="#" class="btn btn-dark">Įrašas jau patinka</a></div>
+    <div class="col-md-4 text-center"><a href="#" class="btn btn-dark">Įrašas jau patinka</a></div>
         @else
-    <div class="col-md-6"><a href="/posts/{{$post->id}}/like" class="btn btn-success">Patinka</a></div>
+    <div class="col-md-4 text-center"><a href="/posts/{{$post->id}}/like" class="btn btn-success">Patinka</a></div>
         @endif
+    @if(!$post->isReported())
+        <div class="col-md-4"><a href="/posts/{{$post->id}}/report" class="btn btn-success">Pranešti apie įrašą</a></div>
+        @else
+            <div class="col-md-4"><a href="#" class="btn btn-dark">Apie įrašą jau pranešei!</a></div>
+    @endif
+
+
 </div>
     <div class="row pt-3">
     @if(!Auth::guest())

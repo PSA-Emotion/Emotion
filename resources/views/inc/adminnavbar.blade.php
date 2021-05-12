@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
+<nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #ffc433">
     <div class="container">
         <p class="navbar-brand">
 

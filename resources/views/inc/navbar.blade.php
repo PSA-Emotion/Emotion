@@ -1,5 +1,16 @@
+@auth()
+@if(auth()->user()->status == 'guest')
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
-    <div class="container">
+    @elseif(auth()->user()->status == 'vip')
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #a2f7a4">
+            @else
+                <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #ffc433">
+@endif
+                    @endauth
+                    @guest
+                    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
+                        @endguest
+                <div class="container">
         <p class="navbar-brand">
             Emocija.smile
         </p>

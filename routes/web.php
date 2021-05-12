@@ -27,6 +27,7 @@ Route::resource('homepage', \App\Http\Controllers\HomepageController::class);
 Route::resource('review', \App\Http\Controllers\ReviewsController::class);
 Route::resource('status', \App\Http\Controllers\StatusController::class);
 Route::resource('adminPosts', \App\Http\Controllers\AdminPostsController::class);
+Route::resource('vipPosts', \App\Http\Controllers\VipPostsController::class);
 Route::resource('tests', \App\Http\Controllers\DepressionController::class);
 Route::resource('relationship', \App\Http\Controllers\RelationshipsController::class);
 Route::resource('tired', \App\Http\Controllers\TiredController::class);
@@ -56,6 +57,7 @@ Route::get('/relationshipTest', [App\Http\Controllers\HomeController::class, 're
 Route::get('/tiredTest', [App\Http\Controllers\HomeController::class, 'tiredTest'])->name('tiredTest');
 Route::get('/posts/{id}/like', [App\Http\Controllers\LikesController::class, 'like'])->name('like');
 Route::get('/posts/{id}/read', [App\Http\Controllers\ReadsController::class, 'read'])->name('read');
+Route::get('/posts/{id}/report', [App\Http\Controllers\ReportsController::class, 'report'])->name('report');
 Route::get('/vip/{id}/ban', [App\Http\Controllers\BansController::class, 'ban'])->name('ban');
 Route::get('/vip/{id}/unban', [App\Http\Controllers\BansController::class, 'unban'])->name('unban');
 Route::get('/vip/{id}/mute', [App\Http\Controllers\MutesController::class, 'mute'])->name('mute');

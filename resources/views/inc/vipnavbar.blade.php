@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
+<nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #a2f7a4">
     <div class="container">
         <p class="navbar-brand">
 
@@ -19,6 +19,7 @@
                     <li class="nav-item"><a href="/vip" class="nav-link">Moderatoriaus langas</a></li>
                     <li class="nav-item"><a href="/vipMutes" class="nav-link">Atitildymo prašymai</a></li>
                     <li class="nav-item"><a href="/vipBans" class="nav-link">Atblokavimo prašymai</a></li>
+                    <li class="nav-item"><a href="/vipPosts" class="nav-link">Ispėti įrašai</a></li>
                     <li class="nav-item"><a href="/posts/create" class="nav-link">Sukurti įrašą</a></li>
                     @if(auth()->user()->status == 'admin')
                         <li class="nav-item"><a href="/admin" class="nav-link">Admin panelė</a></li>

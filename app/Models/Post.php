@@ -25,4 +25,7 @@ class Post extends Model
     public function isLiked(){
         return Like::where(['post_id'=>$this->id,'user_id'=>auth()->user()->id])->exists();
     }
+    public function isReported(){
+        return Report::where(['post_id'=>$this->id,'user_id'=>auth()->user()->id])->exists();
+    }
 }

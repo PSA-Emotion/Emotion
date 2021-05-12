@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
+use App\Models\Post;
 use App\Models\Read;
 use App\Models\Report;
 use Illuminate\Http\Request;
-use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 
-class AdminPostsController extends Controller
+class VipPostsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->status == 'admin') {
-            $posts = Post::orderBy('created_at', 'desc')->simplePaginate(10);
-            return view('adminPosts')->with('posts', $posts);
+        if (auth()->user()->status == 'vip') {
+            $posts = Post::where('reports', '>', 2)->orderBy('reports', 'desc')->simplePaginate(3);
+            return view('vipPosts')->with('posts', $posts);
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
@@ -120,6 +120,6 @@ class AdminPostsController extends Controller
         }
 
         $post->delete();
-        return redirect('/adminPosts')->with('success', 'Irašas sėkmingai ištrintas');
+        return redirect('/vipPosts')->with('success', 'Irašas sėkmingai ištrintas');
     }
 }
