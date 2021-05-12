@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bans;
 use Illuminate\Http\Request;
-use App\Models\Review;
 
-class ReviewsController extends Controller
+class unbanRequestsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        return view('/review');
+        return view('unbanPage');
     }
 
     /**
@@ -35,19 +35,18 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $this->validate($request, [
-            'title' => 'required|max:50',
             'body' => 'required|max:255',
         ]);
 
-        // Create review
-        $review = new Review();
-        $review->title = $request->input('title');
-        $review->body = $request->input('body');
-        $review->save();
+        // Create ban
+        $ban = new Bans();
+        $ban->user_id = auth()->user()->id;
+        $ban->name = auth()->user()->name;
+        $ban->body = $request->input('body');
+        $ban->save();
 
-        return redirect('/dashboard')->with('success', 'Atsiliepimas išsiųstas');
+        return redirect('/dashboard')->with('success', 'Prašymas išsiųstas');
     }
 
     /**
@@ -92,8 +91,8 @@ class ReviewsController extends Controller
      */
     public function destroy($id)
     {
-        $review = Review::find($id);
-        $review->delete();
-        return redirect('/admin')->with('success', 'Atsiliepimas sėkmingai ištrintas');
+        $bans = Bans::find($id);
+        $bans->delete();
+        return redirect('/vipBans')->with('success', 'Prašymas sėkmingai ištrintas');
     }
 }

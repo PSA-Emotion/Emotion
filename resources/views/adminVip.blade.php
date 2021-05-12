@@ -3,6 +3,12 @@
 @section('content')
     <h1>Moderatoriai</h1>
     <hr>
+    <h3>Moderatorių panelės prašymai</h3>
+    <div class="row">
+        <div class="pl-3"><a href="/vipMutes" class="nav-link btn btn-primary">Atitildymo prašymai</a></div>
+        <div class="pl-3"><a href="#" class="nav-link btn btn-primary">Atblokavimo prašymai</a></div>
+    </div>
+    <hr>
     <table class="table table-striped">
         <tr>
             <th>Vardas</th>
@@ -35,4 +41,5 @@
             @endif
         @endforeach
     </table>
+    {{$users->links()}}
 @endsection

@@ -17,7 +17,11 @@
     </h4>
     <hr>
     <div class="text-center">
-        <a href="#" class="btn btn-outline-primary">Pildyti prašymą</a>
+        @if(!auth()->user()->unbanRequestSent())
+        <a href="/bans" class="btn btn-outline-primary">Pildyti prašymą</a>
+        @else
+            <a href="#" class="btn btn-dark">Prašymas jau pateiktas!</a>
+        @endif
     </div>
     @endif
 @endsection

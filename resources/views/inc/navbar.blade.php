@@ -22,6 +22,10 @@
                 <li class="nav-item"><a href="/profile" class="nav-link">Mano profilis</a></li>
                 @if(auth()->user()->muted == 0)
                 <li class="nav-item"><a href="/posts/create" class="nav-link">Sukurti įrašą</a></li>
+                @else
+                    <li class="nav-item">
+                        <a href="#" class="nav-link btn btn-warning">Jūs easate užtildytas</a>
+                    </li>
                 @endif
                 @if(auth()->user()->status == 'admin')
                     <li class="nav-item"><a href="/admin" class="nav-link">Admin panelė</a></li>

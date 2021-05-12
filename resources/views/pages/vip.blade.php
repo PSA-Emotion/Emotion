@@ -46,4 +46,5 @@
             @endif
         @endforeach
     </table>
+    {{$users->links()}}
     @endsection

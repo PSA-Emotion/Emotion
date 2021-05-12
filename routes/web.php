@@ -30,6 +30,8 @@ Route::resource('adminPosts', \App\Http\Controllers\AdminPostsController::class)
 Route::resource('tests', \App\Http\Controllers\DepressionController::class);
 Route::resource('relationship', \App\Http\Controllers\RelationshipsController::class);
 Route::resource('tired', \App\Http\Controllers\TiredController::class);
+Route::resource('mutes', \App\Http\Controllers\unmuteRequestsController::class);
+Route::resource('bans', \App\Http\Controllers\unbanRequestsController::class);
 
 Route::post('create', 'PostsController@store');
 
@@ -45,6 +47,8 @@ Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->nam
 Route::get('/vip', [App\Http\Controllers\HomeController::class, 'vip'])->name('vip');
 Route::get('/adminUsers', [App\Http\Controllers\HomeController::class, 'adminUsers'])->name('adminUsers');
 Route::get('/adminVip', [App\Http\Controllers\HomeController::class, 'adminVip'])->name('adminVip');
+Route::get('/vipMutes', [App\Http\Controllers\HomeController::class, 'vipMutes'])->name('vipMutes');
+Route::get('/vipBans', [App\Http\Controllers\HomeController::class, 'vipBans'])->name('vipBans');
 Route::get('/adminPosts', [App\Http\Controllers\AdminPostsController::class, 'index'])->name('adminPosts');
 Route::get('/homepageEdit', [App\Http\Controllers\HomepageController::class, 'index'])->name('homepage');
 Route::get('/depressionTest', [App\Http\Controllers\HomeController::class, 'depressionTest'])->name('depressionTest');

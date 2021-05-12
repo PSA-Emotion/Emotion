@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bans;
+use App\Models\Mutes;
 use App\Models\Post;
 use App\Models\Read;
 use Illuminate\Http\Request;
@@ -82,6 +84,9 @@ class HomeController extends Controller
         $add_to_progress = ($summ/$posts*40)+$sum;
         $user->progress = $add_to_progress;
         $user->save();
+
+
+        //
         return view('profile')->with('posts', $user->posts);
     }
 
@@ -97,7 +102,7 @@ class HomeController extends Controller
     public function adminUsers()
     {
         if (auth()->user()->status == 'admin') {
-            $users = User::all();
+            $users = User::where('status', 'guest')->orderBy('created_at','asc')->simplePaginate(3);
             return view('adminUsers')->with('users', $users);
 
         }
@@ -107,7 +112,7 @@ class HomeController extends Controller
     public function adminVip()
     {
         if (auth()->user()->status == 'admin') {
-            $users = User::all();
+            $users = User::where('status', 'vip')->orderBy('created_at','asc')->simplePaginate(3);
             return view('adminVip')->with('users', $users);
 
         }
@@ -138,8 +143,28 @@ class HomeController extends Controller
     public function vip()
     {
         if(auth()->user()->status == 'vip') {
-            $users = User::all();
+            $users = User::where('status', 'guest')->orderBy('created_at','asc')->simplePaginate(5);
             return view('pages.vip')->with('users', $users);
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
+    }
+
+    public function vipMutes()
+    {
+        if (auth()->user()->status == 'vip' || auth()->user()->status == 'admin') {
+            $mutes = Mutes::orderBy('created_at','desc')->simplePaginate(3);
+            return view('vipMutes')->with('mutes', $mutes);
+
+        }
+        else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
+    }
+
+    public function vipBans()
+    {
+        if (auth()->user()->status == 'vip' || auth()->user()->status == 'admin') {
+            $bans = Bans::orderBy('created_at','desc')->simplePaginate(3);
+            return view('vipBans')->with('bans', $bans);
+
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }

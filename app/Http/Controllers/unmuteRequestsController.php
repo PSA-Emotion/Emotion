@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mutes;
 use Illuminate\Http\Request;
-use App\Models\Review;
 
-class ReviewsController extends Controller
+class unmuteRequestsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        return view('/review');
+        return view('unmutePage');
     }
 
     /**
@@ -35,19 +35,18 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $this->validate($request, [
-            'title' => 'required|max:50',
             'body' => 'required|max:255',
         ]);
 
         // Create review
-        $review = new Review();
-        $review->title = $request->input('title');
-        $review->body = $request->input('body');
-        $review->save();
+        $mute = new Mutes();
+        $mute->user_id = auth()->user()->id;
+        $mute->name = auth()->user()->name;
+        $mute->body = $request->input('body');
+        $mute->save();
 
-        return redirect('/dashboard')->with('success', 'Atsiliepimas išsiųstas');
+        return redirect('/profile')->with('success', 'Prašymas išsiųstas');
     }
 
     /**
@@ -92,8 +91,8 @@ class ReviewsController extends Controller
      */
     public function destroy($id)
     {
-        $review = Review::find($id);
-        $review->delete();
-        return redirect('/admin')->with('success', 'Atsiliepimas sėkmingai ištrintas');
+        $mute = Mutes::find($id);
+        $mute->delete();
+        return redirect('/vipMutes')->with('success', 'Prašymas sėkmingai ištrintas');
     }
 }

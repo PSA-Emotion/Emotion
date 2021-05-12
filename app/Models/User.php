@@ -33,6 +33,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
+    public function unmuteRequestSent(){
+        return Mutes::where(['user_id'=>auth()->user()->id])->exists();
+    }
+
+    public function unbanRequestSent(){
+        return Bans::where(['user_id'=>auth()->user()->id])->exists();
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

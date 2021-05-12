@@ -7,8 +7,24 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
 
-                    <h3 class="text-center">Tavo profilis</h3>
-
+                    <h2 class="text-center">Tavo profilis</h2>
+                        @if(auth()->user()->muted == 1)
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>Jūs užtildytas, galite teikti prašymą, jos galimybė rašyti įrašus vėl būtų suteikta</h4>
+                            </div>
+                            @if(!auth()->user()->unmuteRequestSent())
+                            <div class="col-md-4">
+                                <a href="/mutes" class="btn btn-warning">Teikti prašyma</a>
+                            </div>
+                            @else
+                                <div class="col-md-4">
+                                    <a href="#" class="btn btn-dark">Prašymas jau pateiktas!</a>
+                                </div>
+                            @endif
+                        </div>
+                        @endif
                         <hr>
                         <h4 class="text-center">Tavo progresas {{auth()->user()->progress}} %</h4>
 

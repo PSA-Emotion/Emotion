@@ -17,8 +17,11 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a href="/dashboard" class="nav-link">Pagrindinis langas</a></li>
                     <li class="nav-item"><a href="/vip" class="nav-link">Moderatoriaus langas</a></li>
-                    @if(auth()->user()->status == 'vip' || auth()->user()->status == 'admin')
-                        <li class="nav-item"><a href="/posts/create" class="nav-link">Sukurti įrašą</a></li>
+                    <li class="nav-item"><a href="/vipMutes" class="nav-link">Atitildymo prašymai</a></li>
+                    <li class="nav-item"><a href="/vipBans" class="nav-link">Atblokavimo prašymai</a></li>
+                    <li class="nav-item"><a href="/posts/create" class="nav-link">Sukurti įrašą</a></li>
+                    @if(auth()->user()->status == 'admin')
+                        <li class="nav-item"><a href="/admin" class="nav-link">Admin panelė</a></li>
                     @endif
                 </ul>
         @endauth
