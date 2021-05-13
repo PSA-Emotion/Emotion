@@ -26,12 +26,17 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy('created_at','desc')->simplePaginate(10);
+        //filter the posts
+        $filter = $request->query('filter');
+
+
+        //$posts = Post::orderBy('created_at','desc')->simplePaginate(10);
+        $posts = Post::where('title','like', '%'.$filter.'%')->orderBy('created_at','desc')->simplePaginate(10);
         $reads = Read::all();
         //return view('posts.index')->with('posts', $posts);
-        return view('posts.index', ['posts'=>$posts, 'reads'=>$reads]);
+        return view('posts.index', ['posts'=>$posts, 'reads'=>$reads, 'filter'=>$filter]);
     }
 
     /**

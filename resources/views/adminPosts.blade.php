@@ -2,6 +2,17 @@
 
 @section('content')
     <h1 class="text-center">Visi įrašai</h1>
+
+    <form class="form-inline" method="GET">
+        <div class="form-group mb-2">
+            <label for="filter" class="col-sm-3 col-form-label">Paieška:</label>
+            <input type="text" class="form-control" id="filter" name="filter" placeholder="Įrašo pavadinimas..." value="{{$filter}}">
+        </div>
+        <button type="submit" class="btn btn-success mb-2">Ieškoti</button>
+    </form>
+
+    <hr>
+
     @if(count($posts)>0)
         @foreach($posts as $post)
             <div class="card">

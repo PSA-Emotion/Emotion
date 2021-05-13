@@ -16,11 +16,15 @@ class AdminPostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (auth()->user()->status == 'admin') {
-            $posts = Post::orderBy('created_at', 'desc')->simplePaginate(10);
-            return view('adminPosts')->with('posts', $posts);
+
+            //filter the posts
+            $filter = $request->query('filter');
+
+            $posts = Post::where('title','like', '%'.$filter.'%')->orderBy('created_at', 'desc')->simplePaginate(10);
+            return view('adminPosts', ['posts'=>$posts, 'filter'=>$filter]);
         }
         else return redirect('/dashboard')->with('error', 'Prieeiga neleistina');
     }
